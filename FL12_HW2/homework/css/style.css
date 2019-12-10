@@ -139,3 +139,89 @@ section::before {
   border-width: 35px 35px 0 0;
   border-color: lightskyblue transparent transparent transparent;
 }
+
+
+@media print {
+  .container {
+    max-width: 95%;
+    font-weight: normal;
+  }
+
+  .tm-banner {
+    padding: 0;
+  }
+
+  .tm-content-box,
+  section {
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .tm-team-img,
+  .carousel-indicators,
+  #about,
+  section::before,
+  .tm-sidebar,
+  .heading ol li .text::after,
+  .blocks .gallery-container,
+  .img-contact-us,
+  #contact, {
+    display: none;
+  }
+
+  .tm-main-content {
+    padding-top: 20px;
+  }
+
+  #home {
+    border: 2px solid lightgrey;
+    margin-bottom: 10px;
+  }
+
+  #ideas .tm-section-description,
+  .blocks .tm-section-description {
+    width: 100%;
+    margin: 0 auto 1.5em auto;
+  }
+
+  .heading .padding-medium h2 {
+    font-weight: 300;
+  }
+
+  .blocks .tm-section-title {
+    text-align: center;
+  }
+
+  h2 {
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .tm-team-description-container {
+    max-width: 1000px;
+  }
+
+  .tm-section-description {
+    text-align: center;
+    text-indent: 0;
+    line-height: normal;
+  }
+
+  .heading ol {
+    width: 50%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .heading ol li {
+    list-style: none;
+  }
+
+  .heading ol li:nth-child(odd) {
+    text-align: end;
+  }
+
+  .padding-medium {
+    padding: 15px 0 0 0;
+  }
+}
