@@ -165,7 +165,7 @@ section::before {
   .heading ol li .text::after,
   .blocks .gallery-container,
   .img-contact-us,
-  #contact, {
+  #contact {
     display: none;
   }
 
