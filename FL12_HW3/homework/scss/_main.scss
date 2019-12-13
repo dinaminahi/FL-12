@@ -1,21 +1,26 @@
 @mixin style-of-button {
-  font-family: 'Hind', sans-serif;
-  color: #fff;
+  font-family: $headingFont;
   border: none;
   font-size: 14px;
   padding: 8px 35px;
   border-radius: 3px;
-  font-weight: bold;
   letter-spacing: 0.1mm;
   background-color: $buttonBackground;
 }
 
+@mixin links {
+  color: #fff;
+  font-weight: 600;
+  font-family: $headingFont;
+}
+
 body {
   margin: 0;
+  background-color: $bodyBackground;
 }
 
 .header {
-  background-image: url("../img/m-h-day.jpg");
+  background-image: $headerBackground;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -36,7 +41,7 @@ body {
         position: absolute;
         display: inline;
         font-size: 1.2em;
-        font-family: 'Hind', sans-serif;
+        font-family: $textFont;
         font-weight: bold;
         left: 50px;
         bottom: -14px;
@@ -60,7 +65,7 @@ body {
       font-size: 3.5em;
       font-weight: bold;
       margin: 50px 0 30px;
-      font-family: 'Source Sans Pro', sans-serif;
+      font-family: $headingFont;
       position: relative;
       z-index: 1000;
       color: $headerTextColour;
@@ -78,7 +83,7 @@ body {
     }
 
     .header_text {
-      font-family: 'Hind', sans-serif;
+      font-family: $textFont;
       font-size: 13px;
       line-height: 1.5;
       white-space: pre-line;
@@ -93,16 +98,74 @@ body {
     }
 
     .login {
-      color: #fff;
-      font-weight: 600;
-      font-family: 'Source Sans Pro', sans-serif;
       margin-left: 120px;
+      @include links;
+      font-weight: bold;
+      color: #fff;
     }
   }
 }
 
 .section {
+  text-align: center;
+
   .section_text {
-    text-align: center;
+    font-weight: 600;
+    font-family: $headingFont;
+    color: $headerTextColour;
+    font-size: 2em;
+    position: relative;
+    z-index: 1000;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 142px;
+      height: 30px;
+      bottom: 7px;
+      right: 610px;
+      background-color: $textBackground;
+      z-index: -1;
+    }
+  }
+
+  .section_card {
+    background-color: $cardColour;
+    width: 55%;
+    margin: 20px auto 20px;;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border-radius: 5px;
+    color: #fff;
+
+    .section_card_img {
+      padding: 10px;
+      border-radius: 15px;
+      width: 335px;
+    }
+
+    .section_card_heading {
+      font-family: $headingFont;
+      font-weight: 600;
+      font-size: 20px;
+      padding: 17px 0 15px;
+    }
+
+    .section_card_text {
+      font-size: 12px;
+      text-align: justify;
+      color: #C0C3CE;
+      padding-bottom: 20px;
+      width: 67%;
+      font-weight: 400;
+      margin: auto;
+      font-family: $textFont;
+    }
+
+    .section_link {
+      @include links;
+      font-size: 12px;
+      color: #C0C3CE;
+    }
   }
 }
