@@ -1,0 +1,108 @@
+@mixin style-of-button {
+  font-family: 'Hind', sans-serif;
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  padding: 8px 35px;
+  border-radius: 3px;
+  font-weight: bold;
+  letter-spacing: 0.1mm;
+  background-color: $buttonBackground;
+}
+
+body {
+  margin: 0;
+}
+
+.header {
+  background-image: url("../img/m-h-day.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom-right-radius: 700px 230px;
+
+  .header-wrap {
+    padding: 5px 0 150px 145px;
+
+    .landing-logo {
+      position: relative;
+      padding-top: 15px;
+      img {
+        display: inline;
+        width: 38px;
+      }
+
+      p {
+        position: absolute;
+        display: inline;
+        font-size: 1.2em;
+        font-family: 'Hind', sans-serif;
+        font-weight: bold;
+        left: 50px;
+        bottom: -14px;
+        line-height: 1.4;
+        letter-spacing: 0.2mm;
+        color: $headerTextColour;
+
+        span {
+          display: block;
+          font-size: 0.45em;
+          letter-spacing: 0.08mm;
+          text-align: center;
+          color: $headerTextColour;
+        }
+      }
+    }
+
+    .header_heading {
+      width: 30%;
+      line-height: 1.1;
+      font-size: 3.5em;
+      font-weight: bold;
+      margin: 50px 0 30px;
+      font-family: 'Source Sans Pro', sans-serif;
+      position: relative;
+      z-index: 1000;
+      color: $headerTextColour;
+
+      &::after {
+        content: "";
+        background-color: $textBackground;
+        width: 237px;
+        height: 40px;
+        position: absolute;
+        left: -1px;
+        bottom: 7px;
+        z-index: -1;
+      }
+    }
+
+    .header_text {
+      font-family: 'Hind', sans-serif;
+      font-size: 13px;
+      line-height: 1.5;
+      white-space: pre-line;
+      letter-spacing: 0.05mm;
+      width: 50%;
+      color: $headerTextColour;
+    }
+
+    .header_button {
+      @include style-of-button;
+      margin-top: 36px;
+    }
+
+    .login {
+      color: #fff;
+      font-weight: 600;
+      font-family: 'Source Sans Pro', sans-serif;
+      margin-left: 120px;
+    }
+  }
+}
+
+.section {
+  .section_text {
+    text-align: center;
+  }
+}

@@ -1,0 +1,80 @@
+body {
+  margin: 0; }
+
+.header {
+  background-image: url("../img/m-h-day.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom-right-radius: 700px 230px; }
+  .header .header-wrap {
+    padding: 5px 0 150px 145px; }
+    .header .header-wrap .landing-logo {
+      position: relative;
+      padding-top: 15px; }
+      .header .header-wrap .landing-logo img {
+        display: inline;
+        width: 38px; }
+      .header .header-wrap .landing-logo p {
+        position: absolute;
+        display: inline;
+        font-size: 1.2em;
+        font-family: 'Hind', sans-serif;
+        font-weight: bold;
+        left: 50px;
+        bottom: -14px;
+        line-height: 1.4;
+        letter-spacing: 0.2mm;
+        color: #fff; }
+        .header .header-wrap .landing-logo p span {
+          display: block;
+          font-size: 0.45em;
+          letter-spacing: 0.08mm;
+          text-align: center;
+          color: #fff; }
+    .header .header-wrap .header_heading {
+      width: 30%;
+      line-height: 1.1;
+      font-size: 3.5em;
+      font-weight: bold;
+      margin: 50px 0 30px;
+      font-family: 'Source Sans Pro', sans-serif;
+      position: relative;
+      z-index: 1000;
+      color: #fff; }
+      .header .header-wrap .header_heading::after {
+        content: "";
+        background-color: #FF4E33;
+        width: 237px;
+        height: 40px;
+        position: absolute;
+        left: -1px;
+        bottom: 7px;
+        z-index: -1; }
+    .header .header-wrap .header_text {
+      font-family: 'Hind', sans-serif;
+      font-size: 13px;
+      line-height: 1.5;
+      white-space: pre-line;
+      letter-spacing: 0.05mm;
+      width: 50%;
+      color: #fff; }
+    .header .header-wrap .header_button {
+      font-family: 'Hind', sans-serif;
+      color: #fff;
+      border: none;
+      font-size: 14px;
+      padding: 8px 35px;
+      border-radius: 3px;
+      font-weight: bold;
+      letter-spacing: 0.1mm;
+      background-color: #E3AC00;
+      margin-top: 36px; }
+    .header .header-wrap .login {
+      color: #fff;
+      font-weight: 600;
+      font-family: 'Source Sans Pro', sans-serif;
+      margin-left: 120px; }
+
+.section .section_text {
+  text-align: center; }
