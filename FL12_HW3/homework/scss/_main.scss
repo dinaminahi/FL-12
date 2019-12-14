@@ -1,3 +1,4 @@
+$font-weights: ("regular": 400, "medium": 600, "bold": 700);
 @mixin style-of-button {
   font-family: $headingFont;
   border: none;
@@ -6,12 +7,40 @@
   border-radius: 3px;
   letter-spacing: 0.1mm;
   background-color: $buttonBackground;
+  font-weight: map-get($map:$font-weights, $key:"medium");
+  color: #fff;
 }
-
 @mixin links {
   color: #fff;
   font-weight: 600;
   font-family: $headingFont;
+}
+@mixin logo ($color) {
+  position: relative;
+
+  img {
+    display: inline;
+    width: 38px;
+  }
+
+  p {
+    position: absolute;
+    display: inline;
+    font-size: 1.2em;
+    font-family: $textFont;
+    font-weight: bold;
+    line-height: 1.4;
+    letter-spacing: 0.2mm;
+    color: $color;
+
+    span {
+      display: block;
+      font-size: 0.45em;
+      letter-spacing: 0.08mm;
+      text-align: center;
+      color: $color;
+    }
+  }
 }
 
 body {
@@ -30,32 +59,12 @@ body {
     padding: 5px 0 150px 145px;
 
     .landing-logo {
-      position: relative;
+      @include logo($headerTextColour);
       padding-top: 15px;
-      img {
-        display: inline;
-        width: 38px;
-      }
 
       p {
-        position: absolute;
-        display: inline;
-        font-size: 1.2em;
-        font-family: $textFont;
-        font-weight: bold;
         left: 50px;
         bottom: -14px;
-        line-height: 1.4;
-        letter-spacing: 0.2mm;
-        color: $headerTextColour;
-
-        span {
-          display: block;
-          font-size: 0.45em;
-          letter-spacing: 0.08mm;
-          text-align: center;
-          color: $headerTextColour;
-        }
       }
     }
 
@@ -132,7 +141,7 @@ body {
   .section_card {
     background-color: $cardColour;
     width: 55%;
-    margin: 20px auto 20px;;
+    margin: 20px auto;
     display: grid;
     grid-template-columns: 1fr 2fr;
     border-radius: 5px;
@@ -166,6 +175,95 @@ body {
       @include links;
       font-size: 12px;
       color: #C0C3CE;
+    }
+  }
+
+  .section_banner {
+    width: 60%;
+    position: relative;
+    margin: 50px auto auto;
+    border-radius: 5px;
+    display: flex;
+    bottom: -52px;
+    background: linear-gradient(49deg, $leftGradient 15%, $rightGradient 84%);
+
+    .section_banner_button {
+      @include style-of-button;
+      margin: auto;
+    }
+
+    .section_banner_text_wrap {
+      margin: auto;
+      text-align: left;
+      line-height: 0.7;
+
+      .section_banner_heading {
+        font-family: $headingFont;
+        color: $headerTextColour;
+        font-weight: bold;
+        font-size: 23px;
+        position: relative;
+        z-index: 1000;
+
+        &::after {
+          content: "";
+          width: 49px;
+          height: 30px;
+          background-color: $textBackground;
+          position: absolute;
+          left: 93px;
+          z-index: -1;
+          bottom: -4px;
+        }
+      }
+
+      .section_banner_text {
+        font-family: $textFont;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 400;
+        padding-bottom: 20px;
+      }
+    }
+  }
+}
+
+.footer {
+  background-color: $cardColour;
+  z-index: -1;
+
+  .footer-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 90px 40px 20px;
+
+    .footer_logo {
+      @include logo(#fff);
+      padding-left: 90px;
+
+      p {
+        bottom: -2px;
+      }
+
+      img {
+        padding-right: 10px;
+        padding-top: 10px;
+      }
+    }
+
+    .footer_text {
+      color: #C0C3CE;
+      font-family: $textFont;
+      font-size: 12px;
+      padding: 0 110px;
+    }
+
+    .footer-cr {
+      @extend .section;
+      color: #C0C3CE;
+      font-family: $headingFont;
+      font-size: 14px;
+      padding-top: 20px;
     }
   }
 }
