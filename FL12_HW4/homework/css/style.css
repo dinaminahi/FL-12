@@ -1,6 +1,7 @@
 body {
   margin: 0;
 }
+
 header nav {
   display: flex;
   justify-content: space-around;
@@ -9,12 +10,12 @@ header nav {
 }
 
 header .nav-logo a {
-   color: #000;
-   text-decoration: none;
-   letter-spacing: 0.5mm;
+  color: #000;
+  text-decoration: none;
+  letter-spacing: 0.5mm;
 }
 
-header .navigation a{
+header .navigation a {
   padding: 0 25px;
   color: #777;
   text-decoration: none;
@@ -53,29 +54,65 @@ header a:hover {
 }
 
 .header-button {
-	background-color:#ffffff;
-	border-radius:28px;
-	display:inline-block;
-	cursor:pointer;
-	color:#000000;
+  background-color: #ffffff;
+  border-radius: 28px;
+  display: inline-block;
+  cursor: pointer;
+  color: #000000;
   border: 0;
   font-size: 0.9em;
-	padding:16px 31px;
-	text-decoration:none;
+  padding: 16px 31px;
+  text-decoration: none;
 }
 
 .post {
-   width: 70%;
-   margin: auto;
+  width: 65%;
+  margin: auto;
 }
 
 .post .post-image {
   width: 100%;
 }
 
+.blog-info {
+  display: flex;
+}
+
 .blog-info img {
-  width: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
+}
+
+.blog-info p {
+  padding: 0 15px 0 10px;
+  font-size: 18px;
+}
+
+.post-description h3 {
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+.blog-text {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #777;
+}
+
+.blog-button {
+  background-color: #ffffff;
+  border-radius: 28px;
+  border: 1px solid #c7c7c7;
+  display: inline-block;
+  cursor: pointer;
+  color: #777;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.2mm;
+  margin-top: 20px;
+  padding: 16px 31px;
+  text-decoration: none;
 }
 
 hr {
