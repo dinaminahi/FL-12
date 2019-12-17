@@ -120,3 +120,28 @@ hr {
   margin: 80px auto;
   opacity: 0.1;
 }
+
+footer {
+  display: flex;
+  background-color: #000;
+  color: #fff;
+  margin: auto;
+  margin-top: 95px;
+}
+
+.col {
+  flex: 50%;
+}
+
+footer .first {
+  padding: 45px 90px 45px 280px;
+}
+
+footer .second {
+  padding: 45px 190px 45px 30px;
+}
+
+footer .footer-text {
+  line-height: 1.4;
+  color: #777;
+}
