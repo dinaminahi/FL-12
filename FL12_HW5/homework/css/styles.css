@@ -1,44 +1,49 @@
-/*
- * Feel free to change name of colors if you need it
- * Feel free to add new colors if you need it
- */
-:root {
-  --bg-color--dark: #0b192f;
-  --bg-color--header: #024161;
-  --link: #fff;
-  --link--hover: #1f52a4;
-  --bg-footer-color: #024161;
-}
-
 body {
   font-family: roboto;
   background-color: #0b192f;
   max-width: 1400px;
   margin: auto;
 }
+
 .post-1 {
-	background: #9d27b0;
-}
-.post-2 {
-	background: #9bb800;
-}
-.post-3 {
-	background: #ed5120;
-}
-.post-4 {
-	background: #9d27b0;
-}
-.post-5 {
-	background: #2d95bb;
+  background: #9d27b0;
 }
 
-/* Your styles go here */
-.navigation-menu a {
-   color: #fff;
-   text-decoration: none;
-   font-weight: 500;
-   padding: 0 20px;
+.post-2 {
+  background: #9bb800;
 }
+
+.post-3 {
+  background: #ed5120;
+}
+
+.post-4 {
+  background: #9d27b0;
+}
+
+.post-5 {
+  background: #2d95bb;
+}
+
+.navigation-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0 20px;
+}
+
+.nav-button {
+  display: none;
+}
+
+.nav-button div {
+  width: 20px;
+  height: 2px;
+  border-radius: 3px;
+  background-color: #fff;
+  margin: 4px 0;
+}
+
 .navigation-menu nav {
   background-color: #024161;
   display: flex;
@@ -74,7 +79,7 @@ header {
   align-items: flex-end;
 }
 
-.header-text  {
+.header-text {
   width: 60%;
   padding: 0 0 30px 45px;
 }
@@ -85,7 +90,235 @@ header {
   margin-bottom: 20px;
 }
 
-.header-text  p {
+.header-text p {
   line-height: 1.5;
   font-weight: normal;
+  opacity: 0.7;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-column-gap: 20px;
+}
+
+.posts .img-post {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 340px;
+}
+
+.posts .img-post img {
+  width: 50%;
+  object-fit: cover;
+  height: 340px;
+}
+
+.news img {
+  width: 300px;
+}
+
+.posts .img-post:nth-child(even) {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.post-description {
+  position: relative;
+  padding: 0 55px;
+  color: #fff;
+}
+
+.post-description h2 {
+  font-size: 3.5em;
+  font-weight: lighter;
+  margin: 0;
+  color: #fff;
+}
+
+.post-description .date {
+  position: absolute;
+  right: 20px;
+  top: -25px;
+  opacity: 0.2;
+  font-size: 4em;
+  margin: 0;
+  display: grid;
+  text-align: center;
+  font-weight: lighter;
+}
+
+.post-description .date span {
+  font-size: 0.5em;
+}
+
+.posts .img-post:nth-child(even) .date {
+  left: -390px;
+}
+
+.post-description p {
+  font-weight: lighter;
+  font-size: 1.1em;
+  line-height: 1.5;
+  opacity: 0.7;
+}
+
+.posts .not-img-post {
+  padding: 27px 0 30px;
+}
+
+.posts .not-img-post p {
+  width: 95%;
+  opacity: 0.7;
+}
+
+.news-post {
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+
+.news-post .news-description {
+  padding: 0 42px 13px;
+}
+
+.news-post .news-description h3 {
+  font-size: 1.8em;
+  font-weight: lighter;
+  margin-bottom: 0;
+}
+
+.news-post .news-description p {
+  font-size: 1.2em;
+  font-weight: lighter;
+  opacity: 0.7;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #024161;
+  padding: 10px 30px;
+  margin-top: 20px;
+}
+
+footer p {
+  opacity: 0.3;
+  color: #fff;
+  font-weight: lighter;
+}
+
+@media (max-width: 748px) {
+  body {
+    margin: 0 10px;
+  }
+
+  .navigation-menu .menu {
+    display: none;
+  }
+
+  .navigation-menu {
+    position: relative;
+    display: block;
+    text-align: center;
+  }
+
+  .nav-button {
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .navigation-menu nav {
+    display: block;
+    text-align: center;
+  }
+
+  .posts .img-post {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .posts .img-post img {
+    width: 100%;
+  }
+
+  .posts .img-post:nth-child(even) {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .post-description h2 {
+    font-size: 2.6em;
+  }
+
+  .post-description p {
+    font-size: 0.8em;
+  }
+
+  .post-description {
+    padding: 25px 45px;
+  }
+
+  footer {
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .news-post .news-description h3 {
+    font-size: 1.5em;
+  }
+
+  .news-post .news-description p {
+    font-size: 1em;
+  }
+
+  .news img {
+    width: 245px;
+  }
+
+  .post-description .date {
+    font-size: 2.8em;
+    top: 5px;
+    right: 15px;
+    display: grid;
+  }
+
+  .post-description .date span {
+    font-size: 0.5em;
+  }
+
+  .posts .img-post:nth-child(even) .date {
+    left: 180px;
+    right: -170px;
+  }
+
+  .posts .not-img-post {
+    padding-bottom: 110px;
+  }
+
+  .posts .not-img-post .date {
+    top: 250px;
+    left: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .posts .img-post:nth-child(even) .date {
+    left: 290px;
+    right: 0;
+  }
+
+  .posts .not-img-post .date {
+    top: 300px;
+    left: 20px;
+  }
+
+  .news .news-post img {
+    width: 100%;
+  }
 }
