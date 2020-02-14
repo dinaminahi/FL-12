@@ -1,0 +1,55 @@
+@import "variables.less";
+
+.navbar .navbar-nav .active {
+    background-color: @color-blue;
+    .nav-link {
+        color: @color-white;
+    } 
+}
+
+.card-background(@color){
+    background-color: @color;
+    border: 1px solid @color;
+    border-width: 2px;
+} 
+
+.container {
+    .heading {
+        color: @color-blue;
+    }
+    .yoga-img {
+        width: inherit;
+    }
+    .hr-style {
+        border-top: 1px solid @color-blue;
+    }
+    .card, .card-img-top {
+        border-radius: 0;
+        border: 0;
+        color: @color-white;
+        &__color {
+            &--red {
+                .card-background(@color-red);
+            }
+            &--green {
+                .card-background(@color-green);
+            }
+            &--orange {
+                .card-background(@color-orange);
+            }
+            &--blue {
+                .card-background(@color-blue);
+            }
+        }
+    }
+    @media (max-width: 991px) {
+        .card-title {
+            font-size: 0.8rem;
+        }
+    }
+}
+
+.footer-content {
+   background-color: @color-grey; 
+   color: @color-white;
+}
