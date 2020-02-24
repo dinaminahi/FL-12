@@ -11,9 +11,9 @@ class Employee {
     }
 
     get age() {
-            let diff =(new Date().getTime() - new Date(this.birthday).getTime()) / 1000;
-            diff /= (60 * 60 * 24);
-            this.Age = Math.abs(Math.round(diff/365.25));
+        let diff =(new Date().getTime() - new Date(this.birthday).getTime()) / 1000;
+        diff /= (60 * 60 * 24);
+        this.Age = Math.abs(Math.round(diff/365.25));
         return this.Age;
     }
 
@@ -68,7 +68,7 @@ class Employee {
         }
     }
 
-    getPromoted(punishment) {
+    getPunished(punishment) {
         if (punishment.salary || punishment.position || punishment.department) {
             console.log('Damn!');
             if (punishment.salary) {
@@ -89,7 +89,7 @@ class Manager extends Employee {
        super({id,firstName, lastName, birthday, salary, department});
        this.position = 'Manager';
    }
-   
+
    get managedEmployees() {
        this.managedEmployee = [];
        Employee.EMPLOYEES.forEach(employee => {
@@ -115,4 +115,20 @@ class SalesManager extends Manager {
         super({id,firstName, lastName, birthday, salary});
         this.department = 'Sales';
     } 
+}
+
+const promoter = (manager) => ({
+    promote: (id, newSalary) => {
+        manager.managedEmployees.forEach( employee => {
+            if (employee.id = id) {
+                employee.getPromoted({salary: newSalary});
+            }
+        });
+    }
+});
+
+function ManagerPro(manager) {
+    if( manager instanceof Manager) {
+       return Object.assign(manager, promoter(manager));
+    }
 }
