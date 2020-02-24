@@ -11,9 +11,9 @@ class Employee {
     }
 
     get age() {
-            let diff =(new Date().getTime() - new Date(this.birthday).getTime()) / 1000;
-            diff /= (60 * 60 * 24);
-            this.Age = Math.abs(Math.round(diff/365.25));
+        let diff =(new Date().getTime() - new Date(this.birthday).getTime()) / 1000;
+        diff /= (60 * 60 * 24);
+        this.Age = Math.abs(Math.round(diff/365.25));
         return this.Age;
     }
 
@@ -120,7 +120,7 @@ class SalesManager extends Manager {
 const promoter = (manager) => ({
     promote: (id, newSalary) => {
         manager.managedEmployees.forEach( employee => {
-            if(employee.id = id) {
+            if (employee.id = id) {
                 employee.getPromoted({salary: newSalary});
             }
         });
@@ -128,7 +128,7 @@ const promoter = (manager) => ({
 });
 
 function ManagerPro(manager) {
-    if( manager instanceof Manager) {
+    if (manager instanceof Manager) {
        return Object.assign(manager, promoter(manager));
     }
 }
