@@ -21,9 +21,9 @@ class Card {
     }
 
     static compare(cardOne, cardTwo){
-        if (cardOne.rank === 1){
+        if (cardOne.rank === 1 && cardTwo.rank !== 1){
             return true;
-        } else if (cardTwo.rank === 1) {
+        } else if (cardTwo.rank === 1 && cardOne.rank !== 1) {
             return false;
         } else {
             return cardOne.rank > cardTwo.rank;
@@ -36,7 +36,7 @@ class Deck {
       this.cards = (function () {
         let readyDeck = [];
         for(let i = 0; i < suits.length; i++) {
-            for(let j = 0; j < ranks.length; j++) {
+            for(let j = 1; j < ranks.length + 1; j++) {
                 readyDeck.push(new Card(suits[i], j));
             }
         }
@@ -49,7 +49,7 @@ class Deck {
   }
 
   suffle() {
-      for( let i = 0; i < 200; i++) {
+      for( let i = 0; i < 100; i++) {
           let fRandNum =  Math.floor(Math.random()*52);
           let sRandNum = Math.floor(Math.random()*52);
           [this.cards[fRandNum],this.cards[sRandNum]] = [this.cards[sRandNum],this.cards[fRandNum]]; 
@@ -88,18 +88,16 @@ class Player {
         let fPoints = 0;
         let sPoints = 0;
 
-        for (let i = 0; i < 52; i++) {
+        while (playerOne.deck.count > 0) {
             let fCard = playerOne.deck.draw(1);
             let sCard = playerTwo.deck.draw(1);
             if (Card.compare(fCard[0],sCard[0])) {
                 fPoints++;
             } else if (Card.compare(sCard[0],fCard[0])) {
                 sPoints++;
-            } else {
-                i--;
-            }
+            } 
         }
-        
+
         if (fPoints > sPoints) {
             playerOne.addWin();
             playerOne.deck = new Deck();
