@@ -49,7 +49,7 @@ class Deck {
   }
 
   suffle() {
-      for( let i = 0; i < 100; i++) {
+      for( let i = 0; i < 200; i++) {
           let fRandNum =  Math.floor(Math.random()*52);
           let sRandNum = Math.floor(Math.random()*52);
           [this.cards[fRandNum],this.cards[sRandNum]] = [this.cards[sRandNum],this.cards[fRandNum]]; 
@@ -88,7 +88,7 @@ class Player {
         let fPoints = 0;
         let sPoints = 0;
 
-        for (let i = 0; i < 51; i++) {
+        for (let i = 0; i < 52; i++) {
             let fCard = playerOne.deck.draw(1);
             let sCard = playerTwo.deck.draw(1);
             if (Card.compare(fCard[0],sCard[0])) {
