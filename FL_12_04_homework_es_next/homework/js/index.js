@@ -26,8 +26,7 @@ const logNamesPromises = (url) => {
     fetch(url)
     .then((response) => response.json())
     .then((myJson) => {
-        let names = [];
-        myJson.forEach(el => names.push(el.name));
+        let names = myJson.map(el => el.name);
         return names;
     })
     .then((names) => {
