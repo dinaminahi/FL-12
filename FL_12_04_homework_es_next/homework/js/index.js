@@ -2,25 +2,30 @@ const maxElement = (arr) => Math.max(...arr);
 
 const copyArray = (arr) => [...arr];
 
+let i = 0;
+
 const addUniqueId = (obj) => {
-    let uniqueId = Symbol();
-    return {id: uniqueId, ...obj};
-}
+    let uniqueId = Symbol('id');
+    return {[uniqueId.description]: i++, ...obj};
+};
 
 const findUniqueElements = (arr) => [...new Set(arr)];
 
 const hideNumber = (number) => {
     let length = number.length;
     return number.substr(length - 4).padStart(length, '*');
-}
+};
+
+const regroupObject = (oldObj) => {
+    let {name, details: {id, age, university}} = oldObj;
+    return {university, user: {age, firstName: name, id}}
+};
 
 const missPropery = () => {
     throw new Error('Missing property');
-}
+};
 
-const add = (a = missPropery(), b = missPropery()) => { 
-       return a + b;
-}
+const add = (a = missPropery(), b = missPropery()) => a + b;
 
 const logNamesPromises = (url) => {
     fetch(url)
@@ -40,7 +45,7 @@ const logNamesPromises = (url) => {
             }
         }));
     });
-}
+};
 
 const logNamesAsync = async (url) => {
     const fetchRequest = await fetch(url);
@@ -55,4 +60,4 @@ const logNamesAsync = async (url) => {
             return 0;
         }
     }));
-}
+};
