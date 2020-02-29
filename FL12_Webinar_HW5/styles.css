@@ -1,0 +1,26 @@
+.user-heading {
+    margin: 0;
+}
+
+.card-img-top {
+    height: 400px;
+}
+
+#users {
+  margin: 0;
+}
+
+.card {
+    margin: 20px;
+    padding: 0;
+}
+
+.card-body {
+    position: relative;
+}
+
+.btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
