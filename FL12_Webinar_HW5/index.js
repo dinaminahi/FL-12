@@ -1,22 +1,22 @@
 let users;
-const spinner = document.getElementById("spinner");
+const spinner = document.getElementById('spinner');
 
-fetch("https://jsonplaceholder.typicode.com/users")
+fetch('https://jsonplaceholder.typicode.com/users')
   .then(response => response.json())
   .then(json => {
     users = json;
     json.forEach(user => {
-      fetch("https://api.thecatapi.com/v1/images/search?mime_types=jpg,png")
+      fetch('https://api.thecatapi.com/v1/images/search?mime_types=jpg,png')
         .then(res => res.json())
         .then(img => {
           let text = `
                 <div class="card col-3">
                      <img class="card-img-top" src="${img[0].url}" alt="cat">
                      <div class="card-body">
-                        <button class="btn-edit" id="${user.id}" onClick="editUser(this.id)"><i class="far fa-edit"></i></button>
-                        <button class="btn-delete" value="${user.id}" onClick="deleteUser(this.value)"><i class="fas fa-trash"></i></button>
+                        <button class="btn btn-edit" id="${user.id}" onClick="editUser(this.id)"><i class="far fa-edit"></i></button>
+                        <button class="btn btn-delete" value="${user.id}" onClick="deleteUser(this.value)"><i class="fas fa-trash"></i></button>
                         <h4 class="card-title">ID: ${user.id}</h4>
-                        <p><strong>Name:</strong> ${user.name} <strong>Username:</strong> ${user.username}</p>
+                        <p onClick="getPosts(${user.id})"><strong>Name:</strong> ${user.name} <strong>Username:</strong> ${user.username}</p>
                         <p><strong>Email:</strong> ${user.email}</p>
                         <p><strong>Address:</strong> ${user.address.street} ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}</p>
                         <p><strong>Geo:</strong> lat: ${user.address.geo.lat} lng: ${user.address.geo.lng}</p>
@@ -26,15 +26,14 @@ fetch("https://jsonplaceholder.typicode.com/users")
                      </div>
                 </div>
              `;
-          document.getElementById("users").innerHTML += text;
+          document.getElementById('users').innerHTML += text;
         });
     });
   });
 
 function editUser(clicked) {
   let userDetails = document.getElementById(clicked).parentElement;
-  let editForm = document.createElement("div");
-
+  let editForm = document.createElement('div');
   editForm.innerHTML = `
     <div class="input-group">
         <div class="input-group-prepend"><span class="input-group-text" id="basic-addon1">Name:</span></div>
@@ -119,17 +118,15 @@ function editUser(clicked) {
     <button class="save-btn" id="${clicked +
       `${users[clicked - 1].username}`}">Save</button>
   `;
-
   userDetails.appendChild(editForm);
-
   document
     .getElementById(clicked + users[clicked - 1].username)
-    .addEventListener("click", function() {
-      spinner.removeAttribute("hidden");
+    .addEventListener('click', function() {
+      spinner.removeAttribute('hidden');
       fetch(
         `https://jsonplaceholder.typicode.com/users/${users[clicked - 1].id}`,
         {
-          method: "PUT",
+          method: 'PUT',
           body: JSON.stringify({
             id: users[clicked - 1].id,
             name: document.getElementById(users[clicked - 1].name).value,
@@ -161,27 +158,71 @@ function editUser(clicked) {
             }
           }),
           headers: {
-            "Content-type": "application/json; charset=UTF-8"
+            'Content-type': 'application/json; charset=UTF-8'
           }
         }
       )
         .then(response => response.json())
         .then(json => {
           console.log(json);
-          spinner.setAttribute("hidden", "");
+          spinner.setAttribute('hidden', '');
         });
       userDetails.removeChild(editForm);
     });
 }
 
 function deleteUser(clicked) {
-  spinner.removeAttribute("hidden");
+  spinner.removeAttribute('hidden');
   fetch(`https://jsonplaceholder.typicode.com/users/${clicked}`, {
-    method: "DELETE"
+    method: 'DELETE'
   })
     .then(response => response.json())
     .then(json => {
-      spinner.setAttribute("hidden", "");
+      spinner.setAttribute('hidden', '');
       console.log(json);
+    });
+}
+
+function getPosts(id) {
+  document.getElementById('title').innerText = 'Posts';
+  document.getElementById('users').hidden = true;
+  let posts = document.getElementById('posts');
+  posts.removeAttribute('hidden');
+  spinner.removeAttribute('hidden');
+  Promise.all([
+    fetch(`https://jsonplaceholder.typicode.com/posts`).then(value =>
+      value.json()
+    ),
+    fetch(`https://jsonplaceholder.typicode.com/users/${id}`).then(value =>
+      value.json()
+    )
+  ])
+    .then(value => {
+      let userPost = value[0].filter(post => post.userId === id);
+      let user = value[1];
+      userPost.forEach(post => {
+        fetch(`https://jsonplaceholder.typicode.com/comments`)
+          .then(response => response.json())
+          .then(json => {
+            let comments = json.filter(comment => comment.postId === post.id);
+            let output = `
+                      <h3>Post title: ${post.title}</h3>
+                      <h6>Id: ${post.id}</h6>
+                      <p>${post.body}</p>
+                      <h5>Comments:</h5>
+                    `;
+            comments.forEach(comment => {
+              output += `
+                          <h6>Id: ${comment.id}</h6>
+                          <p>${comment.body}</p>
+                        `;
+            });
+            posts.innerHTML += output;
+          });
+      });
+      spinner.setAttribute('hidden', '');
+    })
+    .catch(err => {
+      console.log(err);
     });
 }
