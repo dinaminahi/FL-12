@@ -2,12 +2,18 @@ body {
     position: relative;
 }
 
-.user-heading {
-    margin: 0;
+.btn {
+    position: absolute;
 }
 
-#users {
-  margin: 0;
+.btn-delete {
+    right: 15px;
+    top: 15px;
+}
+
+.btn-edit {
+    right: 60px;
+    top: 15px;
 }
 
 .card {
@@ -15,18 +21,16 @@ body {
     margin: 20px;
 }
 
-.card-img-top {
-    height: 300px;
-}
-
 .card-body {
     position: relative;
 }
 
-.btn {
-    position: absolute;
-    right: 10px;
-    top: 10px;
+.card-img-top {
+    height: 300px;
+}
+
+#posts {
+    margin: 20px;
 }
 
 .save-btn {
@@ -65,4 +69,11 @@ body {
       transform: rotate(360deg);
     }
   }
-  
+
+.user-heading {
+    margin: 0;
+}
+
+#users {
+  margin: 0;
+}
