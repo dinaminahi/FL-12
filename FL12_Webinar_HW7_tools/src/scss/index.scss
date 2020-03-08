@@ -1,0 +1,36 @@
+body {
+        font-family: Helvetica;
+        font-size: 20px;
+        text-align: center;
+        background: white;
+        color: black;
+        margin: 3em;
+      
+        .rules ul {
+            text-align: left;
+        }
+
+        #status {
+            margin-top: 20px;
+        }
+          
+        #result {
+            margin-top: 20px;
+        }
+}
+
+button {
+    background-color: #3e3e40;
+    border-radius: 5px;
+    padding: 20px;
+    border: none;
+
+    i {
+        color: white;
+    }
+}
+
+#reset {
+   color: white;
+   font-size: 18px;
+}
