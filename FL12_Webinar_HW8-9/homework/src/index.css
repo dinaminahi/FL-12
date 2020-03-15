@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+body {
+  margin: 0 auto;
+  padding: 25px;
+  max-width: 1000px;
+  min-width: 1000px;
+  background-color: #f0eff4;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+}
+
+.card {
+  border-radius: 10px;
+  position: relative;
+  padding: 25px 15px;
+  background-color: #ffffff;
+  margin: 10px 0;
+  height: 50px;
+  text-align: left;
+  display: flex;
+}
+
+.card-title {
+  margin: 16px 0;
+  flex-basis: 15%;
+  text-align: left;
+}
+
+.card-date {
+  flex-basis: 20%;
+  text-align: center;
+}
+
+.card-description {
+  flex-basis: 40%;
+  text-align: left;
+}
+
+.card-duration {
+  flex-basis: 20%;
+  text-align: center;
+}
+
+.filterInput {
+  max-width: 745px;
+  min-width: 745px;
+  border-radius: 10px;
+  position: relative;
+  padding: 20px 15px;
+  border: 0;
+  margin: 100px 10px 30px 0;
+  display: inline;
+}
+
+.add-course-btn {
+  box-shadow: inset 0px 1px 0px 0px #97c4fe;
+  background: linear-gradient(to bottom, #49e4dc 5%, #18b0da 100%);
+  background-color: #49e4dc;
+  border: 0;
+  border-radius: 4px;
+  display: inline;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 18px 62px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #1570cd;
+}
+
+.add-course-btn:hover {
+  background: linear-gradient(to bottom, #18b0da 5%, #49e4dc 100%);
+  background-color: #18b0da;
+}
+
+.add-course-btn:active {
+  position: relative;
+  top: 1px;
+}
+
+form label, textarea {
+    display: block;
+    width: 1000px;
+}
+
+form {
+    text-align: left;
+}
+
+.input {
+    width: 1000px;
+    border-radius: 10px;
+    position: relative;
+    padding: 20px 15px;
+    border: 0;
+    margin: 10px 10px 30px 0;
+}
